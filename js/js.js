@@ -1,3 +1,6 @@
 $( function() {
-	$( ".supervisor").draggable();
+	$( ".vigilant").draggable();
+	$( ".supervisor").draggable({
+		containment: ".edifici"
+	});
 } );

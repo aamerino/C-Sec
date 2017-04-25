@@ -4,13 +4,17 @@
     position: absolute;
 	}
   
-  div:first-child {
+  .supermercat {
 	  background-color: yellow;
   }
   
-  div:nth-child(2){
+  .magatzem{
 	  background-color: blue;
 	  left: 500px;
+  }
+  
+  .edifici {
+	  width: 1000px;
   }
   
   .vigilant {
@@ -24,3 +28,4 @@
 	  height:100px;
 	  background-color: red;
   }
+  
