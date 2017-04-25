@@ -1,0 +1,14 @@
+  div {
+  	width: 500px;
+  	height: 500px;
+    position: absolute;
+	}
+  
+  div:first-child {
+	  background-color: yellow;
+  }
+  
+  div:nth-child(2){
+	  background-color: blue;
+	  left: 500px;
+  }
