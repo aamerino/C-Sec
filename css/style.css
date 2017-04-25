@@ -30,9 +30,16 @@
 	  background-color: red;
   }
   
-  .punt-vigilancia.interior {
+  .punt-supervisio {
 	  top: 250px;
 	  left: 700px;
+	  width: 100px;
+	  height: 100px;
+	  background-color: brown;
+  }
+  
+  .punt-supervisio-actiu {
+	  background-color: lime;
   }
   
   .punt-vigilancia  {
