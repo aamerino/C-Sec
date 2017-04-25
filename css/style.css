@@ -12,3 +12,15 @@
 	  background-color: blue;
 	  left: 500px;
   }
+  
+  .vigilant {
+	  width: 100px;
+	  height:100px;
+	  background-color: pink;
+  }
+  
+    .supervisor {
+	  width: 100px;
+	  height:100px;
+	  background-color: red;
+  }
