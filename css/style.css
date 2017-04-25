@@ -15,17 +15,34 @@
   
   .edifici {
 	  width: 1000px;
+	  margin-left: 100px;
   }
   
   .vigilant {
-	  width: 100px;
-	  height:100px;
+	  width: 50px;
+	  height: 50px;
 	  background-color: pink;
   }
   
-    .supervisor {
-	  width: 100px;
-	  height:100px;
+    .supervisor  {
+	  width: 50px;
+	  height:50px;
 	  background-color: red;
   }
   
+  .punt-vigilancia.interior {
+	  top: 250px;
+	  left: 700px;
+  }
+  
+  .punt-vigilancia  {
+	  top: 250px;
+	  left: 150px;
+	  width: 100px;
+	  height: 100px;
+	  background-color: orange;
+  }
+  
+  .punt-vigilancia-actiu {
+	  background-color: green;
+  }
