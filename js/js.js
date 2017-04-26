@@ -37,9 +37,11 @@ $(function () {
         }
     });
 
-    $("#llistat-productes").sortable();
+    $("#llistat-departaments").sortable({
+        cursor: 'pointer'
+    });
 
     $("#desplegar-llistat").click(function () {
-        $("#llistat-productes").slideToggle("fast");
+        $("#llistat-departaments").slideToggle("fast");
     });
 });
