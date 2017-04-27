@@ -44,4 +44,8 @@ $(function () {
     $("#desplegar-llistat").click(function () {
         $("#llistat-departaments").slideToggle("fast");
     });
+    $("#accordion").accordion({
+        collapsible: true,
+        cursor: 'pointer'
+    })
 });

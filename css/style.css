@@ -22,7 +22,6 @@ div {
 .vigilant {
     width: 50px;
     height: 50px;
-    background-color: pink;
 }
 
 .supervisor {
@@ -94,4 +93,13 @@ div {
 
 ul li:nth-child(-n+3) {
     background: red;
+}
+
+#accordion {
+    position: absolute;
+    top: 320px;
+    right: 70px;
+    width: 100px;
+    height: 200px;
+    border: solid 2px black;
 }
