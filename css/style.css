@@ -6,12 +6,18 @@ div {
 
 .supermercat {
     border: 4px solid black;
+    background-image: url("../img/supermercat.jpg");
+    background-size: 500px 500px;
+    background-repeat: no-repeat;
 }
 
 .magatzem {
     border: 4px solid black;
     border-left: 0px;
     left: 500px;
+    background-image: url("../img/magatzem.png");
+    background-size: 500px 500px;
+    background-repeat: no-repeat;
 }
 
 .edifici {
@@ -47,11 +53,11 @@ div {
     left: 150px;
     width: 100px;
     height: 100px;
-    background-color: orange;
+    background-color: #007fff;
 }
 
 .punt-vigilancia-actiu {
-    background-color: green;
+    background-color: darkblue;
 }
 
 .portaA {

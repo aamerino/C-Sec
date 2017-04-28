@@ -1,10 +1,11 @@
 $(function () {
     $(".vigilant").draggable({
+        containment: ".edifici",
         cursor: 'pointer'
     });
     $(".supervisor").draggable({
         containment: ".edifici",
-        cursor: 'pointer'
+        cursor: 'pointer',
     });
     $(".punt-vigilancia").droppable({
         accept: function (d) {
@@ -19,7 +20,8 @@ $(function () {
         out: function (event, ui) {
             $(this)
                 .removeClass("punt-vigilancia-actiu")
-        }
+        },
+        tolerance: "fit"
     });
     $(".punt-supervisio").droppable({
         accept: function (d) {
@@ -34,7 +36,8 @@ $(function () {
         out: function (event, ui) {
             $(this)
                 .removeClass("punt-supervisio-actiu")
-        }
+        },
+        tolerance: "fit"
     });
 
     $("#llistat-departaments").sortable({
@@ -47,5 +50,6 @@ $(function () {
     $("#accordion").accordion({
         collapsible: true,
         cursor: 'pointer'
-    })
-});
+    });
+})
+;
