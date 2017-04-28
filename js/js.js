@@ -47,5 +47,8 @@ $(function () {
     $("#accordion").accordion({
         collapsible: true,
         cursor: 'pointer'
-    })
+    });
+    $(function() {
+        $( "#cameras-seguretat" ).tabs();
+    });
 });
