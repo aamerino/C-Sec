@@ -127,6 +127,10 @@ $(function () {
     $("#accordion").accordion({
         collapsible: true
     });
+
+    $(function() {
+        $( "#cameras-seguretat" ).tabs();
+    });
 });
 
 function comprobarEstats() {

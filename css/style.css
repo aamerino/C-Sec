@@ -4,6 +4,10 @@ div {
     position: absolute;
 }
 
+ol {
+    list-style-type: none;
+}
+
 .supermercat {
     border: 4px solid black;
 }
@@ -202,4 +206,45 @@ div {
     padding: 0;
     margin: 0;
     margin-top: 3px;
+}
+
+#cameras-seguretat {
+    position: absolute;
+    top: 650px;
+    left: 360px;
+    width: 650px;
+    height: 500px;
+}
+
+#cameras-seguretat ul {
+    display: block;
+    width: 312px;
+    padding: 0;
+    height: 80px;
+    margin: 0 auto
+}
+
+#cameras-seguretat div {
+    width: 100%;
+    height: 340px;
+    margin: 0 auto;
+}
+
+.tab-button {
+    display: block;
+    border: 2px solid black;
+    padding: 14px 16px;
+    float: left;
+    margin: 3px;
+}
+
+.tab-button a {
+    text-decoration: none;
+}
+
+.tab-content {
+    display: block;
+    width: 615px;
+    height: 340px;
+    margin: 0 auto;
 }
