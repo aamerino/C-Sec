@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,47 +8,80 @@
     <link rel="stylesheet" href="jquery-ui.min.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/jquery-ui.js"></script>
-    <script src="js/js.js"></script>
+    <script src="js/main.js"></script>
 </head>
+
 <body>
-<div class="edifici" id="edifici">
-    <div class="supermercat">
+    <div class="edifici" id="edifici">
+        <div class="supermercat">
+        </div>
+        <div class="magatzem">
+        </div>
+        <div class="punt-vigilancia"></div>
+        <div class="punt-supervisio"></div>
+        <div class="porta posicioVendes portaVendes tancada"></div>
+        <div class="foratPorta posicioVendes"></div>
+        <div class="porta posicioInterior portaInterior tancada"></div>
+        <div class="foratPorta posicioInterior"></div>
+        <div class="porta posicioMagatzem portaMagatzem tancada"></div>
+        <div class="foratPorta posicioMagatzem"></div>
     </div>
-    <div class="magatzem">
+
+
+    <div id="departaments">
+        <button class="desplegarLlistat">Desplegar llistat de departaments</button>
+        <ul id="llistat">
+            <li class="departament">Neteja personal</li>
+            <li class="departament">Drogueria</li>
+            <li class="departament">Roba</li>
+            <li class="departament">Electrònica</li>
+            <li class="departament">Cosmètica</li>
+            <li class="departament">Llibreria</li>
+            <li class="departament">Fruteria</li>
+        </ul>
     </div>
-</div>
 
-<div class="punt-vigilancia"></div>
-<div class="punt-supervisio"></div>
-<div class="portaA"></div>
-<div class="portaB"></div>
-<div class="portaC"></div>
+    <div id="accordion">
+        <button>Vigilants</button>
+        <p>
+            <img src="./img/seguretat.jpg" class="vigilant" />
+            <img src="./img/seguretat.jpg" class="vigilant" />
+        </p>
+        <button>Supervisor</button>
+        <p>
+            <img src="./img/supervisor.jpg" class="supervisor ui-widget-content">
+        </p>
+    </div>
 
-<div id="departaments">
-    <button id="desplegar-llistat">Desplegar llistat de departaments</button>
-    <ul id="llistat-departaments">
-        <li class="departament">Neteja personal</li>
-        <li class="departament">Drogueria</li>
-        <li class="departament">Roba</li>
-        <li class="departament">Electrònica</li>
-        <li class="departament">Cosmètica</li>
-        <li class="departament">Llibreria</li>
-        <li class="departament">Fruteria</li>
-    </ul>
-</div>
+    <div id="controlPortes">
+        <button class="desplegarLlistatControls">Porta de vendes</button>
+        <ul>
+            <li class="control controlPortaVendes obrir">Obrir</li>
+            <li class="control controlPortaVendes tancar">Tancar</li>
+            <li class="control controlPortaVendes aturar">Aturar</li>
+        </ul>
+        <button class="desplegarLlistatControls">Porta interior</button>
+        <ul>
+            <li class="control controlPortaInterior obrir">Obrir</li>
+            <li class="control controlPortaInterior tancar">Tancar</li>
+        </ul>
+        <button class="desplegarLlistatControls">Porta del magatzem</button>
+        <ul>
+            <li class="control controlPortaMagatzem obrir">Obrir</li>
+            <li class="control controlPortaMagatzem tancar">Tancar</li>
+            <li class="control controlPortaMagatzem aturar">Aturar</li>
+        </ul>
+    </div>
 
-<div id="accordion">
-    <button>Vigilants</button>
-    <p>
-        <img src="./img/seguretat.jpg" class="vigilant"/>
-        <img src="./img/seguretat.jpg" class="vigilant"/>
-    </p>
-    <button>Supervisor</button>
-    <p>
-        <img src="./img/supervisor.jpg" class="supervisor ui-widget-content">
-    </p>
-
-</div>
+    <div id="missatges">
+        <div id="portesTancades">
+            <p>Totes les portes estan tancades</p>
+        </div>
+        <div id="puntsAtesos">
+            <p>Tots els punts estan atesos</p>
+        </div>
+    </div>
 
 </body>
+
 </html>
