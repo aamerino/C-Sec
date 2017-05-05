@@ -1,43 +1,43 @@
 $(function () {
-    comprobarEstats();
-    /*   Als elements amb la classe "vigilant" els afegim la funcionalitat "draggable" per poder moure'ls per la pantalla
-     li afegim la propietat "cursor: 'move'" perque en moure els elements el cursor canviï per una creu */
+    comprovarEstats();
+    /*  Els elements amb la classe "vigilant" els afegim la funcionalitat "draggable" per poder moure'ls per la pantalla
+     li afegim la propietat "cursor: 'move'" perquè en moure els elements el cursor canviï per una creu */
     $(".vigilant").draggable({
         cursor: 'move'
     });
-    //Aquí fem el mateix amb el supervisor i limitem el seu moviment a l'edifici  amb la propietat "containment"
+    // Aquí fem el mateix amb el supervisor i limitem el seu moviment a l'edifici  amb la propietat "containment"
     $(".supervisor").draggable({
-        containment: ".edifici",
+        revert: 'invalid',
         cursor: 'move'
     });
-    //seleccionem l'element marcat amb la classe "punt-vigilancia" per afegir-li la funcionalitat droppable de jquery
+    // Seleccionem l'element marcat amb la classe "punt-vigilancia" per afegir-li la funcionalitat droppable de jquery
     $(".punt-vigilancia").droppable({
         accept: function (d) {
-            //vam comprovant que l'element introduït està marcat amb la classe "vigilant" per acceptar-lo
+            // Vam comprovant que l'element introduït està marcat amb la classe "vigilant" per acceptar-lo
             if (d.hasClass("vigilant")) {
                 return true;
             }
         },
         drop: function (event, ui) {
             $(this)
-            //Quan el punt de vigilància té un element l'hi afegim una classe per canviar-li el color
+            // Quan el punt de vigilància té un element l'hi afegim una classe per canviar-li el color
                 .addClass("punt-vigilancia-actiu");
             //I comprovam els estats
-            comprobarEstats();
+            comprovarEstats();
         },
         out: function (event, ui) {
             $(this)
-            // //Quan el punt de vigilància NO té un element l'hi afegim una classe per canviar-li el color
+            // Quan el punt de vigilància NO té un element l'hi afegim una classe per canviar-li el color
                 .removeClass("punt-vigilancia-actiu");
-            ////I comprovam els estats
-            comprobarEstats();
+            // I comprovam els estats
+            comprovarEstats();
         },
-        //li afegim la propietat "tolerance" per indicar-li que només estigui actiu quan tot l'element estigui endins
+        // Li afegim la propietat "tolerance" per indicar-li que només estigui actiu quan tot l'element estigui endins
         tolerance: "fit"
     });
-    //Tambe li afegim la funcionalitat droppable a l'element marcat amb la clase "punt-supervisio"
+    // També li afegim la funcionalitat droppable a l'element marcat amb la classe "punt-supervisio"
     $(".punt-supervisio").droppable({
-        //comprobam que l'element te la clase "supervisor" perque es pugui fica.
+        // Comprovem que l'element te la classe "supervisor" perquè es pugui ficar.
         accept: function (d) {
             if (d.hasClass("supervisor")) {
                 return true;
@@ -45,34 +45,49 @@ $(function () {
         },
         drop: function (event, ui) {
             $(this)
-            //cambiem el color de l'element una vegada te un supervisor ficat.
+            // Camviem el color de l'element una vegada té un supervisor ficat.
                 .addClass("punt-supervisio-actiu");
-            comprobarEstats();
+            comprovarEstats();
         },
         out: function (event, ui) {
             $(this)
-            //I llevam el color quan el traguem.
+            // I llevam el color quan el traguem.
                 .removeClass("punt-supervisio-actiu");
-            //comprobam els estats.
-            comprobarEstats();
+            // Comprovem els estats.
+            comprovarEstats();
         },
         tolerance: "fit"
     });
 
-    /*    Marquem la llista desordenada dins de l'element "departaments" amb la funcionalitat sortable  de jquery per poder modificar
-     l'ordre del llistat agafant y soltant elements, li afegim la propietat "cursor:move" perque aparegui una ma quan agafam elements del llistat */
+    // Aquest droppable fa que el supervisor no pugui sortir de l'edifici, ames fa que l'animació sigui més suau.
+
+    $(".edifici").droppable({
+        accept: function (d) {
+            if (d.hasClass("supervisor")) {
+                return true;
+            }
+        },
+        tolerance: "fit"
+    });
+    /* Marquem la llista desordenada dins de l'element "departaments" amb la funcionalitat sortable  de jquery per poder modificar
+     l'ordre del llistat agafant i deixant anar elements, li afegim la propietat "cursor:move" perquè aparegui una mà quan agafam elements del llistat */
     $("#departaments > ul").sortable({
         cursor: 'move'
     });
 
-    //Deixem d'amagar l'element marcat amb "desplegarLlistat" i despleguem l'element en fer clic.
+    // Deixem d'amagar l'element marcat amb "desplegarLlistat" i despleguem l'element en fer clic.
     $(".desplegarLlistat").click(function (event) {
         $(event.target).next().slideToggle("fast");
     });
 
+    // Aquesta part li dóna la funcionalitat de desplegar el menú a cada element de la llista de portes.
+
     $(".desplegarLlistatControls").click(function (event) {
         $(event.target).next().animate({ width: "toggle" });
     });
+
+    /*Aquesta part es crida quan pitja a obrir alguna porta, totes les portes tenen aquest listener que es crida quan
+    es vol obrir.*/
 
     $(".obrir").click(function (event) {
         var classList = $(event.target).attr("class");
@@ -80,19 +95,22 @@ $(function () {
         for (var i = 0; i < classes.length; i++) {
             switch (classes[i]) {
                 case "controlPortaVendes":
-                    $(".portaVendes").first().slideUp("slow");
-                    $(".portaVendes").removeClass("tancada");
-                    comprobarEstats();
+                    var portaVendes = $(".portaVendes");
+                    portaVendes.first().slideUp(3000);
+                    portaVendes.removeClass("tancada");
+                    comprovarEstats();
                     break;
                 case "controlPortaInterior":
-                    $(".portaInterior").first().hide();
-                    $(".portaInterior").removeClass("tancada");
-                    comprobarEstats();
+                    var portaInterior = $(".portaInterior");
+                    portaInterior.first().hide();
+                    portaInterior.removeClass("tancada");
+                    comprovarEstats();
                     break;
                 case "controlPortaMagatzem":
-                    $(".portaMagatzem").first().fadeOut("slow");
-                    $(".portaMagatzem").removeClass("tancada");
-                    comprobarEstats();
+                    var portaMagatzem = $(".portaMagatzem");
+                    portaMagatzem.first().fadeOut(3000);
+                    portaMagatzem.removeClass("tancada");
+                    comprovarEstats();
                     break;
                 default:
                     break;
@@ -100,31 +118,35 @@ $(function () {
         }
     });
 
+    // Aquí passa el mateix que la part anterior d'obrir però per tancar.
+
     $(".tancar").click(function (event) {
         var classList = $(event.target).attr("class");
         var classes = classList.split(" ");
         for (var i = 0; i < classes.length; i++) {
             switch (classes[i]) {
                 case "controlPortaVendes":
-                    $(".portaVendes").first().slideDown("slow");
+                    $(".portaVendes").first().slideDown(3000);
                     $(".portaVendes").addClass("tancada");
-                    comprobarEstats();
+                    comprovarEstats();
                     break;
                 case "controlPortaInterior":
                     $(".portaInterior").first().show();
                     $(".portaInterior").addClass("tancada");
-                    comprobarEstats();
+                    comprovarEstats();
                     break;
                 case "controlPortaMagatzem":
-                    $(".portaMagatzem").first().fadeIn("slow");
+                    $(".portaMagatzem").first().fadeIn(3000);
                     $(".portaMagatzem").addClass("tancada");
-                    comprobarEstats();
+                    comprovarEstats();
                     break;
                 default:
                     break;
             }
         }
     });
+
+    // Aquí està la funcionalitat per aturar les portes, només s'aturen la porta de Vendes i la del Magatzem.
 
     $(".aturar").click(function (event) {
         var classList = $(event.target).attr("class");
@@ -143,26 +165,26 @@ $(function () {
         }
     });
 
-    //Apliquem la funció accordion() de jquery  a l'element "accordion" per per afegir-la seva funcionalitat, li afegim
+    //Apliquem la funció accordion() de jquery  a l'element "accordion" per afegir la seva funcionalitat, li afegim
     // la propietat "collapsible: true" perquè  es pugui tancar
     $("#accordion").accordion({
         collapsible: true
     });
-    //Apliquem la funció tabs() de jquery  a l'element "cameras-seguretat" per afegir-la seva funcionalitat.
+    // Apliquem la funció tabs() de jquery  a l'element "cameras-seguretat" per afegir la seva funcionalitat.
     $("#cameras-seguretat").tabs({
         collapsible: true
     });
 });
 
-function comprobarEstats() {
-    //Aquesta funció comprova l'estat de les portes per saber si estan tancades o obertes
+function comprovarEstats() {
+    // Aquesta funció comprova l'estat de les portes per saber si estan tancades o obertes
     var portaVendes = $(".portaVendes");
     var portaInterior = $(".portaInterior");
     var portaMagatzem = $(".portaMagatzem");
     var puntVigilancia = $(".punt-vigilancia");
     var puntSupervisio = $(".punt-supervisio");
 
-    //Si totes les portes estan tancades fem visible l'element html amb el missatge "Totes les portes estan tancades".
+    // Si totes les portes estan tancades, fem visible l'element html amb el missatge "Totes les portes estan tancades".
     if (portaVendes.hasClass("tancada") && portaInterior.hasClass("tancada") &&
         portaMagatzem.hasClass("tancada")) {
         $("#portesTancades").show();
@@ -170,7 +192,7 @@ function comprobarEstats() {
         $("#portesTancades").hide();
     }
 
-    //El mateix amb el punt de vigilància, alternant entre ensenyar l'element amb el missatge "Tots els punts estan atesos" o no.
+    // El mateix amb el punt de vigilància, alternant entre ensenyar l'element amb el missatge "Tots els punts estan atesos" o no.
     if (puntVigilancia.hasClass("punt-vigilancia-actiu") &&
         puntSupervisio.hasClass("punt-supervisio-actiu")) {
         $("#puntsAtesos").show();
