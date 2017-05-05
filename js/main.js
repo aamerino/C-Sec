@@ -23,7 +23,8 @@ $(function () {
             $(this)
                 .removeClass("punt-vigilancia-actiu")
                 comprobarEstats();
-        }
+        },
+		tolerance: "fit"
     });
     $(".punt-supervisio").droppable({
         accept: function (d) {
@@ -40,7 +41,8 @@ $(function () {
             $(this)
                 .removeClass("punt-supervisio-actiu")
                 comprobarEstats();
-        }
+        },
+		tolerance: "fit"
     });
 
     $("#departaments > ul").sortable({
