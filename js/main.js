@@ -1,11 +1,11 @@
 $(function () {
     comprobarEstats();
-/*   Als elements amb la classe "vigilant" els afegim la funcionalitat "draggable" per poder moure'ls per la pantalla
-    li afegim la propietat "cursor: 'move'" perque en moure els elements el cursor canviï per una creu */
+    /*   Als elements amb la classe "vigilant" els afegim la funcionalitat "draggable" per poder moure'ls per la pantalla
+     li afegim la propietat "cursor: 'move'" perque en moure els elements el cursor canviï per una creu */
     $(".vigilant").draggable({
         cursor: 'move'
     });
-   //Aquí fem el mateix amb el supervisor i limitem el seu moviment a l'edifici  amb la propietat "containment"
+    //Aquí fem el mateix amb el supervisor i limitem el seu moviment a l'edifici  amb la propietat "containment"
     $(".supervisor").draggable({
         containment: ".edifici",
         cursor: 'move'
@@ -20,14 +20,14 @@ $(function () {
         },
         drop: function (event, ui) {
             $(this)
-                //Quan el punt de vigilància té un element l'hi afegim una classe per canviar-li el color
+            //Quan el punt de vigilància té un element l'hi afegim una classe per canviar-li el color
                 .addClass("punt-vigilancia-actiu");
             //I comprovam els estats
             comprobarEstats();
         },
         out: function (event, ui) {
             $(this)
-                // //Quan el punt de vigilància NO té un element l'hi afegim una classe per canviar-li el color
+            // //Quan el punt de vigilància NO té un element l'hi afegim una classe per canviar-li el color
                 .removeClass("punt-vigilancia-actiu");
             ////I comprovam els estats
             comprobarEstats();
@@ -59,8 +59,8 @@ $(function () {
         tolerance: "fit"
     });
 
-/*    Marquem la llista desordenada dins de l'element "departaments" amb la funcionalitat sortable  de jquery per poder modificar
-    l'ordre del llistat agafant y soltant elements, li afegim la propietat "cursor:move" perque aparegui una ma quan agafam elements del llistat */
+    /*    Marquem la llista desordenada dins de l'element "departaments" amb la funcionalitat sortable  de jquery per poder modificar
+     l'ordre del llistat agafant y soltant elements, li afegim la propietat "cursor:move" perque aparegui una ma quan agafam elements del llistat */
     $("#departaments > ul").sortable({
         cursor: 'move'
     });
