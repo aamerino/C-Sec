@@ -1,104 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="jquery-ui.min.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/main.js"></script>
 </head>
 
 <body>
-    <div class="edifici" id="edifici">
-        <div class="supermercat">
-        </div>
-        <div class="magatzem">
-        </div>
-        <div class="punt-vigilancia"></div>
-        <div class="punt-supervisio"></div>
-        <div class="porta posicioVendes portaVendes tancada"></div>
-        <div class="foratPorta posicioVendes"></div>
-        <div class="porta posicioInterior portaInterior tancada"></div>
-        <div class="foratPorta posicioInterior"></div>
-        <div class="porta posicioMagatzem portaMagatzem tancada"></div>
-        <div class="foratPorta posicioMagatzem"></div>
+<!-- Aquesta part són els elements de l'edifici -->
+<div class="edifici" id="edifici">
+    <div class="supermercat"></div>
+    <div class="magatzem"></div>
+    <div class="punt-vigilancia"></div>
+    <div class="punt-supervisio"></div>
+    <div class="porta posicioVendes portaVendes tancada"></div>
+    <div class="foratPorta posicioVendes"></div>
+    <div class="porta posicioInterior portaInterior tancada"></div>
+    <div class="foratPorta posicioInterior"></div>
+    <div class="porta posicioMagatzem portaMagatzem tancada"></div>
+    <div class="foratPorta posicioMagatzem"></div>
+</div>
+
+<!-- Aquí hi ha la llista de departaments, mitjançant jQuery se li afegeixen les animacions de toggable -->
+<div id="departaments">
+    <button class="desplegarLlistat">Desplegar llistat de departaments</button>
+    <ul id="llistat">
+        <li class="departament">Neteja personal</li>
+        <li class="departament">Drogueria</li>
+        <li class="departament">Roba</li>
+        <li class="departament">Electrònica</li>
+        <li class="departament">Cosmètica</li>
+        <li class="departament">Llibreria</li>
+        <li class="departament">Fruiteria</li>
+    </ul>
+</div>
+
+<!-- Aquest bloc conte els vigilants i el supervisor -->
+<div id="accordion">
+    <button>Vigilants</button>
+    <!-- Cada imatge és un vigilant, li aplicam la classe vigilant per poder seleccionar-lo mitjançant jQuery. -->
+    <p>
+        <img src="./img/seguretat.jpg" class="vigilant"/>
+        <img src="./img/seguretat.jpg" class="vigilant"/>
+    </p>
+    <button>Supervisor</button>
+    <!-- Aquí es realitza el mateix que amb els supervisors. -->
+    <p>
+        <img src="./img/supervisor.jpg" class="supervisor ui-widget-content">
+    </p>
+</div>
+
+<!-- Aquí estan els controls de les portes -->
+<div id="controlPortes">
+    <!-- Cada element de la llista és una acció. -->
+    <button class="desplegarLlistatControls">Porta de vendes</button>
+    <ul>
+        <li class="control controlPortaVendes obrir">Obrir</li>
+        <li class="control controlPortaVendes tancar">Tancar</li>
+        <li class="control controlPortaVendes aturar">Aturar</li>
+    </ul>
+    <button class="desplegarLlistatControls">Porta interior</button>
+    <ul>
+        <li class="control controlPortaInterior obrir">Obrir</li>
+        <li class="control controlPortaInterior tancar">Tancar</li>
+    </ul>
+    <button class="desplegarLlistatControls">Porta del magatzem</button>
+    <ul>
+        <li class="control controlPortaMagatzem obrir">Obrir</li>
+        <li class="control controlPortaMagatzem tancar">Tancar</li>
+        <li class="control controlPortaMagatzem aturar">Aturar</li>
+    </ul>
+</div>
+
+<!-- Aquí es controlen es missatges de les portes. -->
+<div id="missatges">
+    <div id="portesTancades">
+        <p>Totes les portes estan tancades</p>
     </div>
-
-
-    <div id="departaments">
-        <button class="desplegarLlistat">Desplegar llistat de departaments</button>
-        <ul id="llistat">
-            <li class="departament">Neteja personal</li>
-            <li class="departament">Drogueria</li>
-            <li class="departament">Roba</li>
-            <li class="departament">Electrònica</li>
-            <li class="departament">Cosmètica</li>
-            <li class="departament">Llibreria</li>
-            <li class="departament">Fruteria</li>
-        </ul>
+    <div id="puntsAtesos">
+        <p>Tots els punts estan atesos</p>
     </div>
+</div>
 
-    <div id="accordion">
-        <button>Vigilants</button>
-        <p>
-            <img src="./img/seguretat.jpg" class="vigilant" />
-            <img src="./img/seguretat.jpg" class="vigilant" />
-        </p>
-        <button>Supervisor</button>
-        <p>
-            <img src="./img/supervisor.jpg" class="supervisor ui-widget-content">
-        </p>
+<!-- Aquí estan les càmeres i el seu controls. -->
+<div id="cameras-seguretat">
+    <ul>
+        <!-- Botons -->
+        <li class="tab-button"><a href="#tab-2">Càmera 1</a></li>
+        <li class="tab-button"><a href="#tab-3">Càmera 2</a></li>
+        <li class="tab-button"><a href="#tab-4">Càmera 3</a></li>
+    </ul>
+    <!-- Imatges de les càmeres-->
+    <div id="tab-2">
+        <img id="imatge-cam-1" class="tab-content" src="./img/cam1.jpg">
     </div>
-
-    <div id="controlPortes">
-        <button class="desplegarLlistatControls">Porta de vendes</button>
-        <ul>
-            <li class="control controlPortaVendes obrir">Obrir</li>
-            <li class="control controlPortaVendes tancar">Tancar</li>
-            <li class="control controlPortaVendes aturar">Aturar</li>
-        </ul>
-        <button class="desplegarLlistatControls">Porta interior</button>
-        <ul>
-            <li class="control controlPortaInterior obrir">Obrir</li>
-            <li class="control controlPortaInterior tancar">Tancar</li>
-        </ul>
-        <button class="desplegarLlistatControls">Porta del magatzem</button>
-        <ul>
-            <li class="control controlPortaMagatzem obrir">Obrir</li>
-            <li class="control controlPortaMagatzem tancar">Tancar</li>
-            <li class="control controlPortaMagatzem aturar">Aturar</li>
-        </ul>
+    <div id="tab-3">
+        <img id="imatge-cam-2" class="tab-content" src="./img/cam2.jpg">
     </div>
-
-    <div id="missatges">
-        <div id="portesTancades">
-            <p>Totes les portes estan tancades</p>
-        </div>
-        <div id="puntsAtesos">
-            <p>Tots els punts estan atesos</p>
-        </div>
+    <div id="tab-4">
+        <img id="imatge-cam-3" class="tab-content" src="./img/cam3.jpg">
     </div>
-
-    <div id="cameras-seguretat">
-        <ul>
-            <li class="tab-button"><a href="#tab-2">Camera 1</a></li>
-            <li class="tab-button"><a href="#tab-3">Camera 2</a></li>
-            <li class="tab-button"><a href="#tab-4">Camera 3</a></li>
-        </ul>
-        <div id="tab-2">
-            <img id="imatge-cam-1" class="tab-content" src="./img/cam1.jpg">
-        </div>
-        <div id="tab-3">
-            <img id="imatge-cam-2" class="tab-content" src="./img/cam2.jpg">
-        </div>
-        <div id="tab-4">
-            <img id="imatge-cam-3" class="tab-content" src="./img/cam3.jpg">
-        </div>
-    </div>
-
+</div>
 </body>
-
 </html>
