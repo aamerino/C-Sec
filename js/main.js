@@ -22,14 +22,9 @@ $(function () {
         out: function (event, ui) {
             $(this)
                 .removeClass("punt-vigilancia-actiu")
-<<<<<<< HEAD
             comprobarEstats();
-        }
-=======
-                comprobarEstats();
         },
-		tolerance: "fit"
->>>>>>> 012675775fca102f5a9277758fc76457c4cab17f
+        tolerance: "fit"
     });
     $(".punt-supervisio").droppable({
         accept: function (d) {
@@ -45,14 +40,9 @@ $(function () {
         out: function (event, ui) {
             $(this)
                 .removeClass("punt-supervisio-actiu")
-<<<<<<< HEAD
             comprobarEstats();
-        }
-=======
-                comprobarEstats();
         },
-		tolerance: "fit"
->>>>>>> 012675775fca102f5a9277758fc76457c4cab17f
+        tolerance: "fit"
     });
 
     $("#departaments > ul").sortable({
