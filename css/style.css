@@ -1,3 +1,10 @@
+/* Estils aplicats a tota la pàgina */
+body {
+    font-family: "Calibri";
+    background-color: #E9E7DA;
+}
+
+/* div principal*/
 div {
     width: 500px;
     height: 500px;
@@ -8,6 +15,7 @@ ol {
     list-style-type: none;
 }
 
+/* Es el gruix de la perifèria del centre comercial*/
 .supermercat {
     border: 4px solid black;
 }
@@ -21,8 +29,24 @@ ol {
 .edifici {
     width: 1000px;
     margin-left: 100px;
+    height: 508px;
+    background-color: #FFF0AA;
 }
 
+/* El logotip de la empresa de seguretat*/
+.logo {
+    background-image: url("http://vignette1.wikia.nocookie.net/masseffect/images/2/28/ME2_Fade_Away.png/revision/latest?cb=20140610092113&path-prefix=es");
+    width: 100px;
+    height: 100px;
+    background-size: 100% 100%;
+    margin-top: 10px;
+    opacity: 0.5;
+}
+
+/*
+   Estils per al personal de seguretat
+   Si un punt està "actiu" el color de fons canviarà
+*/
 .vigilant {
     width: 50px;
     height: 50px;
@@ -41,11 +65,11 @@ ol {
     left: 528px;
     width: 80px;
     height: 100px;
-    background-color: brown;
+    background-color: #550000;
 }
 
 .punt-supervisio-actiu {
-    background-color: lime;
+    background-color: #D46A6A;
 }
 
 .punt-vigilancia {
@@ -53,26 +77,32 @@ ol {
     left: 20px;
     width: 80px;
     height: 100px;
-    background-color: orange;
+    background-color: #061539;
 }
 
 .punt-vigilancia-actiu {
-    background-color: green;
+    background-color: #4F628E;
 }
 
+/* Estils de les portes*/
 .porta {
     width: 20px;
     height: 100px;
-    background-color: saddlebrown;
+    margin-top: 3px;
+    background-color: #0F414F;
     z-index: 1;
 }
 
 .foratPorta {
     width: 20px;
     height: 100px;
-    background-color: white;    
+    background-color: white;
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
+
 }
 
+/* Coordenades portes*/
 .posicioVendes {
     top: 375px;
     left: -8px;
@@ -97,6 +127,7 @@ ol {
     height: 300px;
 }
 
+/* Control portes (obrir/tancar/aturar) */
 #controlPortes {
     position: absolute;
     top: 525px;
@@ -136,6 +167,7 @@ ol {
     margin: 35px 2px 0 0;
 }
 
+/* Llistat dels departaments*/
 #llistat {
     list-style-type: none;
     margin: 0;
@@ -159,7 +191,7 @@ ol {
 }
 
 #departaments > ul > li:nth-child(-n+3) {
-    background: red;
+    background: #B60D00;
 }
 
 #accordion {
@@ -172,15 +204,20 @@ ol {
 }
 
 #accordion * {
-    margin: 0 auto;
+    margin: 2px auto;
     display: block;
 }
+
+/*
+   Misstages que indiquen si les portes estàn tancades i
+   si els encarregats de seguretat estàn al seu lloc
+*/
 
 #missatges {
     position: absolute;
     top: 525px;
     left: 900px;
-    width: 200px;
+    width: 205px;
     height: 50px;
     margin-top: 15px;
 }
@@ -210,6 +247,7 @@ ol {
     margin-top: 3px;
 }
 
+/* Estils per a les càmares de seguretat */
 #cameras-seguretat {
     position: absolute;
     top: 650px;
@@ -249,4 +287,19 @@ ol {
     width: 615px;
     height: 340px;
     margin: 0 auto;
+}
+
+/* Estils dels botons de la pàgina */
+button {
+    background: #428BCA;
+    font-family: "Calibri";
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    border: 0.1em solid black;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background: #3071A9
 }
