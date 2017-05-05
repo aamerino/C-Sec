@@ -26,12 +26,14 @@ ol {
 .vigilant {
     width: 50px;
     height: 50px;
+    cursor: move;
 }
 
 .supervisor {
     width: 50px;
     height: 50px;
     background-color: red;
+    cursor: move;
 }
 
 .punt-supervisio {
@@ -147,7 +149,7 @@ ol {
     padding-left: 1.5em;
     font-size: 17px;
     height: 16px;
-    cursor: pointer;
+    cursor: move;
 }
 
 .departament, .control {

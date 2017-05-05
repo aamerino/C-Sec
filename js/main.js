@@ -2,11 +2,11 @@ $(function () {
     comprobarEstats();
 
     $(".vigilant").draggable({
-        cursor: 'pointer'
+        cursor: 'move'
     });
     $(".supervisor").draggable({
         containment: ".edifici",
-        cursor: 'pointer'
+        cursor: 'move'
     });
     $(".punt-vigilancia").droppable({
         accept: function (d) {
@@ -17,14 +17,14 @@ $(function () {
         drop: function (event, ui) {
             $(this)
                 .addClass("punt-vigilancia-actiu")
-                comprobarEstats();
+            comprobarEstats();
         },
         out: function (event, ui) {
             $(this)
                 .removeClass("punt-vigilancia-actiu")
-                comprobarEstats();
+            comprobarEstats();
         },
-		tolerance: "fit"
+        tolerance: "fit"
     });
     $(".punt-supervisio").droppable({
         accept: function (d) {
@@ -35,18 +35,18 @@ $(function () {
         drop: function (event, ui) {
             $(this)
                 .addClass("punt-supervisio-actiu")
-                comprobarEstats();
+            comprobarEstats();
         },
         out: function (event, ui) {
             $(this)
                 .removeClass("punt-supervisio-actiu")
-                comprobarEstats();
+            comprobarEstats();
         },
-		tolerance: "fit"
+        tolerance: "fit"
     });
 
     $("#departaments > ul").sortable({
-        cursor: 'pointer'
+        cursor: 'move'
     });
 
     $(".desplegarLlistat").click(function (event) {
@@ -54,7 +54,7 @@ $(function () {
     });
 
     $(".desplegarLlistatControls").click(function (event) {
-        $(event.target).next().animate({width: "toggle"});
+        $(event.target).next().animate({ width: "toggle" });
     });
 
     $(".obrir").click(function (event) {
@@ -69,8 +69,8 @@ $(function () {
                     break;
                 case "controlPortaInterior":
                     $(".portaInterior").first().hide();
-                    $(".portaInterior").removeClass("tancada");   
-                    comprobarEstats();                
+                    $(".portaInterior").removeClass("tancada");
+                    comprobarEstats();
                     break;
                 case "controlPortaMagatzem":
                     $(".portaMagatzem").first().fadeOut("slow");
@@ -130,8 +130,8 @@ $(function () {
         collapsible: true
     });
 
-    $(function() {
-        $( "#cameras-seguretat" ).tabs();
+    $("#cameras-seguretat").tabs({
+        collapsible: true
     });
 });
 
@@ -142,14 +142,14 @@ function comprobarEstats() {
     var puntVigilancia = $(".punt-vigilancia");
     var puntSupervisio = $(".punt-supervisio");
 
-    if (portaVendes.hasClass("tancada") && portaInterior.hasClass("tancada") && 
+    if (portaVendes.hasClass("tancada") && portaInterior.hasClass("tancada") &&
         portaMagatzem.hasClass("tancada")) {
         $("#portesTancades").show();
     } else {
         $("#portesTancades").hide();
     }
 
-    if (puntVigilancia.hasClass("punt-vigilancia-actiu") && 
+    if (puntVigilancia.hasClass("punt-vigilancia-actiu") &&
         puntSupervisio.hasClass("punt-supervisio-actiu")) {
         $("#puntsAtesos").show();
     } else {
